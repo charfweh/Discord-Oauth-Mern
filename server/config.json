@@ -1,0 +1,12 @@
+{
+    "port": 3001,
+    "clientId": "536543417271058444",
+    "clientSecret": "ZQk7RZMyry2DDpk3zty-wvSR0Cy05XnG",
+    "scopes": ["identify", "guilds"],
+    "redirectUri": "http://localhost:3000/authorize/callback",
+    "token":"NTM2NTQzNDE3MjcxMDU4NDQ0.XwbxGA.-1YRsiYf4P7gyc807iFj1p1ul_8",
+    "bot_prefix":"g!",
+    "inviteurl":"https://discord.com/api/oauth2/authorize?client_id=536543417271058444&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&scope=bot",
+	"webhookid":"748125320133083217",
+	"webhooktoken":"rskhOQuuFlKwLew1jzVg8gHioKgL-R8rTO0O0RKL8PZ8n_T-AaprawwJ0MB8D51Jyuvd"
+}
