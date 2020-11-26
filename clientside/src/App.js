@@ -6,18 +6,6 @@ import Container from "@material-ui/core/Container"
 import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRightOutlined';
 class App extends React.Component {
   
-  // state
-  constructor(props){
-    super(props);
-    this.count = 0
-    this.state = {
-      count: this.count
-    }
-  }
-  setCount = ()=>{
-    this.count = this.count + 1
-    this.setState({count:this.count})
-  }
   render() {
     return (
       <div className="App">
@@ -28,7 +16,7 @@ class App extends React.Component {
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
           when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </Container>
-          <ButtonComponent name = "Login" onClick = {this.handleState} color = "primary"/>
+          <ButtonComponent name = "Login" color = "primary"/>
         </div>
       </div>
     );
