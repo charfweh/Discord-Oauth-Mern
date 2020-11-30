@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -16,6 +16,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
 }
 
 .App-link {
@@ -27,5 +28,6 @@
 }
 
 .indexButtons{
-  size: 15px;
+  padding: 30px;
+  margin-bottom: 30px
 }

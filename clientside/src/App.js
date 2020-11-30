@@ -4,11 +4,13 @@ import ButtonComponent from "./Button"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "@material-ui/core/Container"
 import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRightOutlined';
+import NavbarComponent from "./Navbar"
 class App extends React.Component {
-  
+
   render() {
     return (
       <div className="App">
+        <NavbarComponent/>
         <div className="App-header">
           <h1><KeyboardArrowRightOutlinedIcon fontSize = "large"/>GuildBoard</h1>
           <Container className = "infoContainer" maxWidth = "lg">
