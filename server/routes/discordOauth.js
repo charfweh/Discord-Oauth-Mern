@@ -6,9 +6,9 @@ let username
 // setting cors to proxy
 router.get("/login",(req,res)=>{
   // if(!req.session.userdata) return res.send("Login please")
-  console.log(`In backend ${req.session.userdata}`)
   res.json({
-    username : username 
+    username : username,
+    isLoggedIn: true,
   })
 })
 
@@ -50,6 +50,17 @@ router.get("/callback",(req,res)=>{
       })
     })
   }
+})
+
+
+// logout route
+
+router.get("/logout",(req,res)=>{
+  req.session.destroy((err)=>{
+    if(err) return console.log(err)
+    console.log("Destroyed")
+  })
+  res.redirect("http://localhost:3000")
 })
 
 module.exports = router
