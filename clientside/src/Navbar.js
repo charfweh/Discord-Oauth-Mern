@@ -24,9 +24,9 @@ function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            {props.username}
+            What is this place
           </Typography>
-          <Button color="inherit" onClick = {props.logoutHanlder}>Logout</Button>
+          <Button color="inherit">Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -34,36 +34,9 @@ function ButtonAppBar(props) {
 }
 
 class NavBarComponent extends React.Component{
-    constructor(props){
-        super(props)
-        this.logout = this.logout.bind(this)
-        this.state = {
-            username : "Please login uwuw",
-        }
-    }
-    componentDidMount(){
-            axios.get("/authorize/login").then(res=>{
-              if(res.data.isLoggedIn){
-                  console.log(res.data.username)
-                  this.setState({
-                      username : res.data.username,
-                  })
-                }else{
-                  this.setState({
-                    username: "Please Login"
-                  })
-                }
-            }).catch(err=>{
-                console.log(err)
-            })
-        
-    }
-    logout = ()=>{
-      axios.get('/authorize/logout')
-    }
     render(){
         return(
-            <ButtonAppBar username = {this.state.username} logoutHanlder = {this.logout}/>
+            <ButtonAppBar/>
         )
     }
 }
