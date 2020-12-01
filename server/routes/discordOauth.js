@@ -5,10 +5,9 @@ const fetch = require("node-fetch")
 let username
 // setting cors to proxy
 router.get("/login",(req,res)=>{
-  // if(!req.session.userdata) return res.send("Login please")
+  if(!req.session.userdata) return res.status(401)
   res.json({
     username : username,
-    isLoggedIn: true,
   })
 })
 
