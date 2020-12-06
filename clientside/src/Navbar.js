@@ -24,9 +24,9 @@ function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            What is this place
+            {props.username}
           </Typography>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit">Manage</Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -36,7 +36,7 @@ function ButtonAppBar(props) {
 class NavBarComponent extends React.Component{
     render(){
         return(
-            <ButtonAppBar/>
+            <ButtonAppBar username = {this.props.username}/>
         )
     }
 }
