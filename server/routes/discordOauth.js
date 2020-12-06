@@ -1,25 +1,15 @@
 const router = require("express").Router();
-const {clientId, clientSecret , scopes, redirectUri}  = require("../config.json")
+const {clientId, clientSecret , scopes, redirectUri, proxyUrl}  = require("../config.json")
 const formData = require("form-data")
 const fetch = require("node-fetch")
-const cors = require("cors")
 const {userhit} = require("../bot/logHandlerBot");
-let username
-// setting cors to proxy
-router.get("/login",(req,res)=>{
-  if(!req.session.userdata) return res.status(401)
-  res.json({
-    username : username,
-  })
-})
+let username;
 
 router.get("/callback",(req,res)=>{
   const accessCode = req.query.code
   if(!accessCode){
     res.send("No access code returned from discord")
-    // replace all the redirect in a config file
   }else{
-    console.log(accessCode)
     // making form data 
     const data = new formData();
     data.append("client_id", clientId)
@@ -34,9 +24,8 @@ router.get("/callback",(req,res)=>{
       method: 'POST',
       body: data
     })
-    .then(res => res.json())
+    .then(res =>res.json())
     .then(response =>{
-      console.log(`Response object ${response.token_type} and code ${response.access_token}`)
       fetch("https://discordapp.com/api/users/@me",{
         method: 'GET',
         headers:{
@@ -47,32 +36,29 @@ router.get("/callback",(req,res)=>{
       .then(userResponse =>{
         username = `${userResponse.username}#${userResponse.discriminator}`
         req.session.userdata = userResponse
-        console.log(`username ${username}`)
         userhit(username)
-        res.redirect("http://localhost:3000")
+        res.redirect(proxyUrl)
       })
     })
   }
 })
 
 
-// logout route
+// GET logout route from **AuthComponent** logout button
 
 router.get("/logout",(req,res)=>{
   if(req.session.userdata){
     req.session.destroy((err)=>{
       if(err) return console.log(err)
-      console.log("Destroyed")
+      console.log("Session destroyed")
     })
-    res.redirect("http://localhost:3000")
-  }else{
-    res.redirect("http://locahost:3000")
-  }
+    res.redirect(proxyUrl)
+  }else res.redirect(proxyUrl)
 })
 
 
-// TEST ROUTES
-router.get("/testdata",(req, res)=>{
+// GET userData router from **ComponentDidMount** 
+router.get("/getUserData",(req, res)=>{
   if(!req.session.userdata){
       res.json({
       login : false,

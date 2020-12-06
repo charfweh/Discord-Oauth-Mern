@@ -1,10 +1,10 @@
 {
-    "port": 3001,
-    "clientId": "",
-    "clientSecret": "",
-    "scopes": ["identify", "guilds"],
-    "redirectUri": "http://localhost:3001/authorize/callback",
-    "token":"",
+    "port": 3001, //port that server will listen on
+    "clientId": "", //apps id
+    "clientSecret": "", //apps secret
+    "scopes": ["identify", "guilds"], //scopes
+    "redirectUri": "http://localhost:3001/authorize/callback", //redirect Uri from discord docs
+    "token":"", //bot token
     "bot_prefix":"g!",
-    "inviteurl":"",
+    "inviteurl":"", // bot invite url
 }
