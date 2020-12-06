@@ -2,6 +2,8 @@ const router = require("express").Router();
 const {clientId, clientSecret , scopes, redirectUri}  = require("../config.json")
 const formData = require("form-data")
 const fetch = require("node-fetch")
+const cors = require("cors")
+const {userhit} = require("../bot/logHandlerBot");
 let username
 // setting cors to proxy
 router.get("/login",(req,res)=>{
@@ -45,6 +47,8 @@ router.get("/callback",(req,res)=>{
       .then(userResponse =>{
         username = `${userResponse.username}#${userResponse.discriminator}`
         req.session.userdata = userResponse
+        console.log(`username ${username}`)
+        userhit(username)
         res.redirect("http://localhost:3000")
       })
     })
@@ -55,11 +59,30 @@ router.get("/callback",(req,res)=>{
 // logout route
 
 router.get("/logout",(req,res)=>{
-  req.session.destroy((err)=>{
-    if(err) return console.log(err)
-    console.log("Destroyed")
-  })
-  res.redirect("http://localhost:3000")
+  if(req.session.userdata){
+    req.session.destroy((err)=>{
+      if(err) return console.log(err)
+      console.log("Destroyed")
+    })
+    res.redirect("http://localhost:3000")
+  }else{
+    res.redirect("http://locahost:3000")
+  }
 })
 
+
+// TEST ROUTES
+router.get("/testdata",(req, res)=>{
+  if(!req.session.userdata){
+      res.json({
+      login : false,
+    })
+  }
+  else{
+    res.json({
+      login : true,
+      username : username,
+    })
+  }
+})
 module.exports = router

@@ -13,7 +13,7 @@ server.use(session({
     saveUninitialized: false,
     name:'ohtellme',
     cookie:{
-        expires:1000,
+        expires:1000000,
     }
 }))
 
