@@ -1,5 +1,5 @@
-<div align = "center"><h1> :memo: MERN discord oauth :memo: </h1></div>
-<div align = "center"><h4> :beginner: A starter pack for beginners :beginner:<h4></div><br>
+<div align = "center"><h1> :memo: MERN discord oauth </h1></div>
+<div align = "center"><h4> :beginner: A starter pack for beginners<h4></div><br>
 <div align = "center"><img src = "https://media.discordapp.net/attachments/730731531428954172/785136470557327380/unknown.png?width=936&height=469" alt ="frontend")/></div>
 
 ## :mega: About 
