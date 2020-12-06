@@ -6,11 +6,9 @@ import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRigh
 import NavbarComponent from "./Navbar"
 import {LoginButton, LogoutButton} from "./Button";
 import axios from "axios";
+const authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
 
-
-function TestComponent(props){
-  console.log(props)
-  console.log(props.login)
+function AuthComponent(props){
   const state = props.login
   return(
     <>
@@ -28,8 +26,9 @@ class App extends React.Component {
     }
   }
   handleClick(){
-
+    // if user is logged in
     if(this.state.login){
+      // show the logout button
       axios.get("/authorize/logout").then(res=>{
         this.setState({
           login: false,
@@ -39,13 +38,17 @@ class App extends React.Component {
         console.log(err);
       })
     }else{
-      window.location.href = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds";
+      // if user is not logged in
+      //show the auth href
+      window.location.href = authurl;
     }
   }
 
   // GETTING THE USER DATA
   componentDidMount(){
-    axios.get("/authorize/testdata").then(res=>{
+    // Please check REACT component lifecycle to understand this, whenever component mounts itself, this method will be called
+
+    axios.get("/authorize/getUserData").then(res=>{
       console.log("res" + res.data.login)
       if(res.data.login) {
         this.setState({
@@ -69,7 +72,7 @@ class App extends React.Component {
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
           when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </Container>
-          <TestComponent login = {this.state.login} onClick = {this.handleClick}/>
+          <AuthComponent login = {this.state.login} onClick = {this.handleClick}/>
         </div>
       </div>
     );
