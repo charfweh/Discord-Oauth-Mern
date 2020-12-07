@@ -17,4 +17,6 @@ I highly encourage you to take this tutorial to get a better understanding of re
 - [Material UI](https://material-ui.com/)
 - [Connecting React and Express](https://medium.com/better-programming/connect-your-express-and-react-applications-using-axios-c35723b6d667)
 
-Lots gooduck with coding :)
+## :question: Questions
+
+Contact me on discord.
