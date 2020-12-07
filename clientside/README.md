@@ -2,7 +2,7 @@
 
 ## Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Don't worry about 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). I've not used all the fancy redux states and react router, just a very beginner friendly frontend.
 
 ## :pushpin: Setup
 - Run ``npm install`` to install all the dependencies
@@ -11,11 +11,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## :mag: Docs and Tutorial
 
-I highly encourage you to take this tutorial to get a better understanding of react states and component lifecycle [Get started](https://reactjs.org/tutorial/tutorial.html)
+I highly encourage you to take this tutorial to get a better understanding of react states and component lifecycle [A simple game tutorial using reactjs](https://reactjs.org/tutorial/tutorial.html)
 
 - [Reactjs](https://reactjs.org/)
 - [Material UI](https://material-ui.com/)
 - [Connecting React and Express](https://medium.com/better-programming/connect-your-express-and-react-applications-using-axios-c35723b6d667)
+- [More pages?](https://reactrouter.com/)
+- [Looking for more consistent state handling?](https://redux.js.org/)
 
 ## :question: Questions
 
