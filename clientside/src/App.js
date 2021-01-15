@@ -6,6 +6,9 @@ import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRigh
 import NavbarComponent from "./Navbar"
 import {LoginButton, LogoutButton} from "./Button";
 import axios from "axios";
+import Manage from './pages/Manage';
+import { Redirect, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { render } from 'react-dom';
 const authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
 
 function AuthComponent(props){
@@ -15,6 +18,11 @@ function AuthComponent(props){
         {state ? <LogoutButton login = {props.login} onClick = {props.onClick}/> : <LoginButton login = {props.login} onClick = {props.onClick}/>}
     </>
   )
+}
+function Test(){
+    return(
+      <p>Something</p>
+    )
 }
 class App extends React.Component {
   constructor(props){

@@ -4,6 +4,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Manage from "../src/pages/Manage"
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,9 +34,11 @@ function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             {props.username}
           </Typography>
-          <Button color="inherit">Manage</Button>
+          <Link to ="/manage">Manage</Link>
+          <Link to ="/">Home</Link>
         </Toolbar>
       </AppBar>
+      
     </div>
   );
 }
