@@ -41,8 +41,18 @@ router.get("/callback",(req,res)=>{
         username = `${userResponse.username}#${userResponse.discriminator}`
         req.session.userdata = userResponse
         userhit(username)
-        res.redirect(proxyUrl)
       })
+      fetch('https://discordapp.com/api/users/@me/guilds', {
+        method: 'GET',
+        headers: {
+          authorization: `${response.token_type} ${response.access_token}`
+        },
+      })
+      .then(res2 => res2.json())
+      .then(gResponse => {
+        req.session.guilds = gResponse;
+        res.redirect(proxyUrl)
+        });
     })
   }
 })
