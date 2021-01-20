@@ -10,7 +10,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Manage from "../src/pages/Manage"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,8 +33,11 @@ function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             {props.username}
           </Typography>
-          <Link to ="/manage">Manage</Link>
-          <Link to ="/">Home</Link>
+          {props.isLogin &&
+            <Button><Link to ="/manage">Manage</Link></Button>
+          }
+          <Button><Link to ="/">Home</Link></Button>
+          
         </Toolbar>
       </AppBar>
       
@@ -46,7 +48,7 @@ function ButtonAppBar(props) {
 class NavBarComponent extends React.Component{
     render(){
         return(
-            <ButtonAppBar username = {this.props.username}/>
+            <ButtonAppBar username = {this.props.username} isLogin = {this.props.isLogin}/>
         )
     }
 }

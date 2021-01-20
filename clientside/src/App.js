@@ -72,7 +72,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavbarComponent username = {this.state.username}/>
+        <NavbarComponent username = {this.state.username} isLogin ={this.state.login}/>
         <div className="App-header">
           <h1><KeyboardArrowRightOutlinedIcon fontSize = "large"/>Awesome Name</h1>
           <Container className = "infoContainer" maxWidth = "lg">
