@@ -8,12 +8,8 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    minWidth: 200,
+    paddingBottom: 10,
   },
   title: {
     fontSize: 14,
@@ -23,13 +19,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function GuildCard(props) {
+export default function MutualGuildCard(props) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
       <div className = "App">
-            <Card className={classes.root}>
+            <Card className={classes.root} variant = "outlined">
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                 Server Name
@@ -42,12 +37,39 @@ export default function GuildCard(props) {
                 </Typography>
                 <Typography variant="body2" component="p">
                 {props.mutualGuilds.id}
-                <br />
-                {'Manage em!'}
                 </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">Manage</Button>
+            </CardActions>
+            </Card>
+    </div>
+  );
+}
+
+
+export  function InviteGuildCard(props) {
+  const classes = useStyles();
+
+  return (
+      <div className = "App">
+            <Card className={classes.root}>
+            <CardContent>
+                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                Server Name
+                </Typography>
+                <Typography variant="h5" component="h2">
+                {props.inviteGuilds.name}
+                </Typography>
+                <Typography className={classes.pos} color="textSecondary">
+                Server ID
+                </Typography>
+                <Typography variant="body2" component="p">
+                {props.inviteGuilds.id}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">Invite</Button>
             </CardActions>
             </Card>
     </div>

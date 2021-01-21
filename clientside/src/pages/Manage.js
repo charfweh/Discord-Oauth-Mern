@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React ,{Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import GuildCard from "../chunks/guildCard"
+import MutualGuildCard , {InviteGuildCard} from "../chunks/guildCard"
 import NavBarComponent from "../Navbar"
 class Manage extends Component {
   constructor(props){
     super(props)
     this.state = {
       mutualGuilds : [],
-      inviteGuilds : []
+      inviteGuilds : [],
     }
   }
   componentDidMount(){
@@ -26,7 +26,16 @@ class Manage extends Component {
       console.log(g)
       return(
         <Col sm = "3">
-            <GuildCard mutualGuilds = {g}/>
+            <MutualGuildCard mutualGuilds = {g}/>
+        </Col>
+      )
+    })
+
+    let inviteG = this.state.inviteGuilds.map(g=>{
+      console.log(g)
+      return(
+        <Col sm = "3">
+          <InviteGuildCard inviteGuilds = {g}/>
         </Col>
       )
     })
@@ -36,6 +45,10 @@ class Manage extends Component {
         <Container fluid>
           <Row>
             {mutualG}
+          </Row>
+          <br></br>
+          <Row>
+            {inviteG}
           </Row>
         </Container>
       </div>
