@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  
 }));
 
 function ButtonAppBar(props) {
@@ -34,9 +35,9 @@ function ButtonAppBar(props) {
             {props.username}
           </Typography>
           {props.isLogin &&
-            <Button><Link to ="/manage">Manage</Link></Button>
+            <Button variant = "contained" color = "default" className = {classes.menuButton} ><Link to ="/manage">Manage</Link></Button>
           }
-          <Button><Link to ="/">Home</Link></Button>
+          <Button variant = "contained" color = "default" ><Link to ="/">Home</Link></Button>
           
         </Toolbar>
       </AppBar>

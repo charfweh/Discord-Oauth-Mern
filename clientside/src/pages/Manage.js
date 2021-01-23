@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React ,{Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import MutualGuildCard , {InviteGuildCard} from "../chunks/guildCard"
 import NavBarComponent from "../Navbar"
 import {Alert} from "@material-ui/lab"
@@ -15,26 +15,29 @@ class Manage extends Component {
     }
   }
   componentDidMount(){
+    axios.get("/authorize/getUserData").then(res=>{
+      console.log("res" + res.status)
+      if(res.ok){
+        if(res.data.login) {
+          this.setState({
+            login: true,
+            username : res.data.username
+          })
+        }
+      }
+    }).catch((err)=>{
+      console.log(err);
+    })
     axios.get("/manage/getGuildData").then(res=>{
+      console.log(res.status)
       if(res.data){
         this.setState({
           mutualGuilds: res.data.mutualGuilds,
           inviteGuilds : res.data.inviteGuilds
         })
       }
-    })
+    }).catch(err=>console.log(err))
 
-    axios.get("/authorize/getUserData").then(res=>{
-      console.log("res" + res.data.login)
-      if(res.data.login) {
-        this.setState({
-          login: true,
-          username : res.data.username
-        })
-      }
-    }).catch((err)=>{
-      console.log(err);
-    })
 
   }
     // Please check REACT component lifecycle to understand this, whenever component mounts itself, this method will be called

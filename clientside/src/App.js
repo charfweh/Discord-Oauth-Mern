@@ -42,6 +42,7 @@ class App extends React.Component {
           login: false,
           username : "Your beautiful nickname"
         })
+        this.forceUpdate();
       }).catch((err)=>{
         console.log(err);
       })
