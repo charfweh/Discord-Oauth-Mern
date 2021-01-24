@@ -9,7 +9,7 @@ import axios from "axios";
 import Manage from './pages/Manage';
 import { Redirect, Switch, Route, BrowserRouter } from 'react-router-dom';
 import { render } from 'react-dom';
-const authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
+export let authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
 
 function AuthComponent(props){
   const state = props.login

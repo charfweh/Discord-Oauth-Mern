@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import MutualGuildCard , {InviteGuildCard} from "../chunks/guildCard"
 import NavBarComponent from "../Navbar"
 import {Alert} from "@material-ui/lab"
+import {authurl}  from "../App"
 class Manage extends Component {
   constructor(props){
     super(props)
@@ -17,13 +18,15 @@ class Manage extends Component {
   componentDidMount(){
     axios.get("/authorize/getUserData").then(res=>{
       console.log("res" + res.status)
-      if(res.ok){
+      if(res.status == 200){
+        console.log(authurl)
         if(res.data.login) {
           this.setState({
             login: true,
             username : res.data.username
           })
         }
+        if(!res.data.login) return window.location.href = authurl;
       }
     }).catch((err)=>{
       console.log(err);
