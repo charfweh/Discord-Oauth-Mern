@@ -74,7 +74,7 @@ router.get("/logout",(req,res)=>{
 // GET userData router from **ComponentDidMount** 
 router.get("/getUserData",(req, res)=>{
   if(!req.session.userdata){
-      res.status(403).json({
+      res.json({
       login : false,
     })
   }
