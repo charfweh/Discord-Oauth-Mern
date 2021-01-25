@@ -89,7 +89,7 @@ router.get("/getUserData",(req, res)=>{
 
 
 // Mongoose TEST ROUTES
-
+// Mongo DB test routes for tables
 router.get("/test", async (req, res)=>{
     const user = new userModel({user:"testusername2",userId:"09090123456789"})
     try {
