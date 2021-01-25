@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -21,9 +22,8 @@ const useStyles = makeStyles({
 
 export default function MutualGuildCard(props) {
   const classes = useStyles();
-
   return (
-      <div className = "App">
+    <div className = "App">
             <Card className={classes.root} variant = "outlined">
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -40,7 +40,7 @@ export default function MutualGuildCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Manage</Button>
+                <Button size="small"><Link to = {`/manage/${props.mutualGuilds.id}`}>Manage</Link></Button>
             </CardActions>
             </Card>
     </div>
@@ -50,6 +50,7 @@ export default function MutualGuildCard(props) {
 
 export  function InviteGuildCard(props) {
   const classes = useStyles();
+  const botURL = "https://discord.com/oauth2/authorize?client_id=536543417271058444&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&scope=bot"
 
   return (
       <div className = "App">
@@ -69,7 +70,7 @@ export  function InviteGuildCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Invite</Button>
+                <Button size="small"><a href = {botURL} target = "_blank">Invite</a></Button>
             </CardActions>
             </Card>
     </div>
