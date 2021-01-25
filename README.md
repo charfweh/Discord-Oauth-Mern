@@ -6,6 +6,12 @@
 
 A basic starter pack using MERN ~~w/o the M, sorry~~  stack for discord oauth, beginners can fork or clone this project and get started, it's afaik one of the simplest starter pack for beginners starting out in this domain.
 
+## :mega: Branches
+- master
+    default branch for beginners without mongoDB
+- mongoDB
+    branch with mongoDB connection(still in active development)
+
 ## :mag: Resources
 
 - [Express js](https://expressjs.com/)
