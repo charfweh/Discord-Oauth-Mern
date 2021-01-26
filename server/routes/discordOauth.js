@@ -5,6 +5,10 @@ const fetch = require("node-fetch")
 const {userhit} = require("../bot/logHandlerBot");
 let username;
 
+// Model Import
+const userModel = require("../database/schemaModel");
+
+
 router.get("/callback",(req,res)=>{
   const accessCode = req.query.code
   if(!accessCode){
@@ -37,8 +41,18 @@ router.get("/callback",(req,res)=>{
         username = `${userResponse.username}#${userResponse.discriminator}`
         req.session.userdata = userResponse
         userhit(username)
-        res.redirect(proxyUrl)
       })
+      fetch('https://discordapp.com/api/users/@me/guilds', {
+        method: 'GET',
+        headers: {
+          authorization: `${response.token_type} ${response.access_token}`
+        },
+      })
+      .then(res2 => res2.json())
+      .then(gResponse => {
+        req.session.guilds = gResponse;
+        res.redirect(proxyUrl)
+        });
     })
   }
 })
@@ -70,5 +84,20 @@ router.get("/getUserData",(req, res)=>{
       username : username,
     })
   }
+})
+
+
+
+// Mongoose TEST ROUTES
+// Mongo DB test routes for tables
+router.get("/test", async (req, res)=>{
+    const user = new userModel({user:"testusername2",userId:"09090123456789"})
+    try {
+      console.log(user)
+      await user.save()
+      res.send(user)
+    } catch (error) {
+      console.log(error)
+    }
 })
 module.exports = router

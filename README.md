@@ -4,14 +4,13 @@
 
 ## :mega: About 
 
-A basic starter pack using MERN ~~w/o the M, sorry~~  stack for discord oauth, beginners can fork or clone this project and get started, it's afaik one of the simplest starter pack for beginners starting out in this domain.
+A basic starter pack using MERN stack for discord oauth, beginners can fork or clone this project and get started, it's afaik one of the simplest starter pack for beginners starting out in this domain.
 
 ## :mega: Branches
 - master
-    default branch for beginners without mongoDB
+    Default branch for beginners without mongoDB
 - mongoDB
-    branch with mongoDB connection(still in active development)
-
+    mongoDB branch (still in active development)
 ## :mag: Resources
 
 - [Express js](https://expressjs.com/)
@@ -20,6 +19,7 @@ A basic starter pack using MERN ~~w/o the M, sorry~~  stack for discord oauth, b
 - [Nodemon](https://nodemon.io/)
 - [Security Practices](https://expressjs.com/en/advanced/best-practice-security.html)
 - [Mozilla Web Security](https://developer.mozilla.org/en-US/docs/Web/Security)
+- [MongoDB atlas](https://www.mongodb.com/cloud/atlas)
 
 ## :file_folder: Directory Overview
 - clientside/
@@ -32,6 +32,8 @@ A basic starter pack using MERN ~~w/o the M, sorry~~  stack for discord oauth, b
 - server/
     - bot/<br>
         Discord bot for web dashboard logging
+    - database/<br>
+        MongoDB atlas connection
     - routes/<br>
         Routes for backend
 
@@ -39,7 +41,7 @@ More information is available in respective directories.
 
 ## :page_with_curl: Sidenote
 
-The target audience for this project is beginners, just a skeleton to get you going. This project is not for production build, I've not secured it since that's not the point. I hope you learn a lot from this repo and make great projects out of it. For further research and security practices links are in ``Resources`` section. 
+The target audience for this project is beginners, just a skeleton to get you going. This project is not for production build, please follow best security practices. I hope you learn a lot from this repo and make great projects out of it. For further research and security practices links are in ``Resources`` section. 
 
 ## :mailbox_with_mail: Contact
 

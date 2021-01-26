@@ -4,6 +4,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  
 }));
 
 function ButtonAppBar(props) {
@@ -26,9 +34,14 @@ function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             {props.username}
           </Typography>
-          <Button color="inherit">Manage</Button>
+          {props.isLogin &&
+            <Button variant = "contained" color = "default" className = {classes.menuButton} ><Link to ="/manage">Manage</Link></Button>
+          }
+          <Button variant = "contained" color = "default" ><Link to ="/">Home</Link></Button>
+          
         </Toolbar>
       </AppBar>
+      
     </div>
   );
 }
@@ -36,7 +49,7 @@ function ButtonAppBar(props) {
 class NavBarComponent extends React.Component{
     render(){
         return(
-            <ButtonAppBar username = {this.props.username}/>
+            <ButtonAppBar username = {this.props.username} isLogin = {this.props.isLogin}/>
         )
     }
 }

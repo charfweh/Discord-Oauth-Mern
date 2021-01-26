@@ -7,6 +7,11 @@
 - Create a file ``config.json`` in parent directory and configure it in accordance to ``config.json.example`` file provided
 - Run ``nodemon .`` and you're done with backend
 
+## Database connection
+- You should be familiar with mongoDB ATLAS tier
+- Follow steps on how to setup a atlas connection(check the section below for more)
+- change ``schemaModel.js`` as to design your table
+
 ## :mag: Docs and Tutorial
 
 - [Discord Oauth for Beginners](https://discordjs.guide/oauth2/#putting-it-together)

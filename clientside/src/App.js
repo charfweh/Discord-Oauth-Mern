@@ -6,7 +6,10 @@ import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRigh
 import NavbarComponent from "./Navbar"
 import {LoginButton, LogoutButton} from "./Button";
 import axios from "axios";
-const authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
+import Manage from './pages/Manage';
+import { Redirect, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { render } from 'react-dom';
+export let authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
 
 function AuthComponent(props){
   const state = props.login
@@ -15,6 +18,11 @@ function AuthComponent(props){
         {state ? <LogoutButton login = {props.login} onClick = {props.onClick}/> : <LoginButton login = {props.login} onClick = {props.onClick}/>}
     </>
   )
+}
+function Test(){
+    return(
+      <p>Something</p>
+    )
 }
 class App extends React.Component {
   constructor(props){
@@ -34,6 +42,7 @@ class App extends React.Component {
           login: false,
           username : "Your beautiful nickname"
         })
+        this.forceUpdate();
       }).catch((err)=>{
         console.log(err);
       })
@@ -64,7 +73,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavbarComponent username = {this.state.username}/>
+        <NavbarComponent username = {this.state.username} isLogin ={this.state.login}/>
         <div className="App-header">
           <h1><KeyboardArrowRightOutlinedIcon fontSize = "large"/>Awesome Name</h1>
           <Container className = "infoContainer" maxWidth = "lg">
