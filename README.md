@@ -1,6 +1,6 @@
 <div align = "center"><h1> :memo: MERN discord oauth </h1></div>
 <div align = "center"><h4> :beginner: A starter pack for beginners<h4></div><br>
-<div align = "center"><img src = "https://media.discordapp.net/attachments/730731531428954172/785136470557327380/unknown.png?width=936&height=469" alt ="frontend")/></div>
+<div align = "center"><img src = "https://media.discordapp.net/attachments/794919499723046933/803629128053686332/unknown.png?width=939&height=469" alt ="frontend")/></div>
 
 ## :mega: About 
 
@@ -8,9 +8,9 @@ A basic starter pack using MERN stack for discord oauth, beginners can fork or c
 
 ## :mega: Branches
 - master
-    Default branch for beginners without mongoDB
+    Default branch for beginners with mongoDB
 - mongoDB
-    mongoDB branch (still in active development)
+    Test mongoDB branch
 ## :mag: Resources
 
 - [Express js](https://expressjs.com/)
@@ -45,4 +45,4 @@ The target audience for this project is beginners, just a skeleton to get you go
 
 ## :mailbox_with_mail: Contact
 
-If you've anything, anything at all, I've only one point of contact available right now and thats on Discord: Carefree#4601, I'd be happy to listen.
+If you've anything, anything at all, I've only one point of contact available right now and thats on Discord I'd be happy to listen.
