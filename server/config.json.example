@@ -1,6 +1,7 @@
 {
     "port": 3001, //port that server will listen on
-    "clientId": "", //apps id
+    "clientId": "", //apps id,
+    "proxyURL":"",//frontend URL
     "clientSecret": "", //apps secret
     "scopes": ["identify", "guilds"], //scopes
     "redirectUri": "http://localhost:3001/authorize/callback", //redirect Uri from discord docs
