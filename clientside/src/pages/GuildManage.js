@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Container from "@material-ui/core/Container"
-import KeyboardArrowRightOutlinedIcon from '@material-ui/icons/KeyboardArrowRightOutlined';
-import NavbarComponent from "../Navbar"
+
 class GuildManage extends Component {
     render() {
         return (
