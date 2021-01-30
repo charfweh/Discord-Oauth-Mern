@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React ,{Component } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import MutualGuildCard , {InviteGuildCard} from "../chunks/guildCard"
 import NavBarComponent from "../Navbar"
 import {Alert} from "@material-ui/lab"
@@ -64,10 +64,10 @@ class Manage extends Component {
         <NavBarComponent username = {this.state.username} isLogin ={this.state.login}/>
         <Container fluid>
           <Row>
-            {mutualG.length != 0 ? mutualG: <Alert severity = "error">Data couldnt be fetched.</Alert>}
+            {mutualG.length !== 0 ? mutualG: <Alert severity = "error">Data couldnt be fetched.</Alert>}
           </Row>
           <Row>
-            {inviteG.length != 0?  inviteG: <Alert severity = "error">Data couldnt be fetched.</Alert>}
+            {inviteG.length !== 0?  inviteG: <Alert severity = "error">Data couldnt be fetched.</Alert>}
           </Row>
         </Container>
       </div>
