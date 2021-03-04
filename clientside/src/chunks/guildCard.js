@@ -50,7 +50,7 @@ export default function MutualGuildCard(props) {
 
 export  function InviteGuildCard(props) {
   const classes = useStyles();
-  const botURL = "https://discord.com/oauth2/authorize?client_id=536543417271058444&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&scope=bot"
+  const {botInviteUrl} = require("../config.json")
 
   return (
       <div className = "App">
@@ -70,7 +70,7 @@ export  function InviteGuildCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small"><a href = {botURL} target = "_blank">Invite</a></Button>
+                <Button size="small"><a href = {botInviteUrl} target = "_blank" rel = "noreferrer">Invite</a></Button>
             </CardActions>
             </Card>
     </div>

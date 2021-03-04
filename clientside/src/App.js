@@ -5,17 +5,12 @@ import GuildManage from "./pages/GuildManage"
 import NotFound from "./chunks/notFound"
 import axios from "axios";
 import Manage from './pages/Manage';
-import { Redirect, Switch, Route, BrowserRouter } from 'react-router-dom';
-import { render } from 'react-dom';
+import {  Switch, Route, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
-export let authurl = "https://discord.com/oauth2/authorize?client_id=536543417271058444&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauthorize%2Fcallback&response_type=code&scope=identify%20guilds"
+import {redirectUrl} from "./config.json"
+export let authurl = redirectUrl
 
 
-function Test(){
-    return(
-      <p>Something</p>
-    )
-}
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -41,7 +36,8 @@ class App extends React.Component {
     }else{
       // if user is not logged in
       //show the auth href
-      window.location.href = authurl;
+      console.log(authurl)
+      window.location.href = redirectUrl;
     }
   }
 
